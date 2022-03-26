@@ -36,15 +36,13 @@ const TvHouse = () => {
          return;
       } else {
          const newCart = [...cart, tv];
-         setCart(newCart)
+         setCart(newCart);
       }
    }
 
    // Clear div
-   const handleToClearCart = (divId) => {
-      const clearDiv = document.getElementById(divId).innerHTML = "";
-      setClearCard(clearDiv);
-      window.location.reload();
+   const handleToClearCart = () => {
+      setCart([]);
    }
 
    // Select One function 

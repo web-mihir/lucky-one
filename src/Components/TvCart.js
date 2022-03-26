@@ -25,16 +25,16 @@ const TvCart = (props) => {
             props.selctOneforMe.map(item => {
                const { id, name } = item;
                return (
-                  <div className='border'>
+                  <div className='border' key={id}>
                      <h6 className='mt-5 text-success'>Best TV For You</h6>
-                     <p className='bg-light text-dark rounded shadow-lg p-2 cart_item' key={id}>{name}</p>
+                     <p className='bg-light text-dark rounded shadow-lg p-2 cart_item'>{name}</p>
                   </div>
                )
             })
          }
          <div className="d-flex flex-column">
             <button className='btn btn-info btn-sm my-3' onClick={() => props.selectOneHandler(props.tv_cart)}>SELECT ONE FOR ME</button>
-            <button className='btn btn-danger btn-sm' onClick={() => props.clearCartHandler("tv_card_item_box")}>SELECT AGAIN</button>
+            <button className='btn btn-danger btn-sm' onClick={props.clearCartHandler}>SELECT AGAIN</button>
          </div>
       </div>
    );
