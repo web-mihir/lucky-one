@@ -1,0 +1,44 @@
+[
+   {
+      "id": 1,
+      "name": "HP P19V G4 18.5 inch HD Monitor",
+      "price": "10,000",
+      "image": "p19v-g4-1.jpg"
+   },
+   {
+      "id": 2,
+      "name": "HP P204v 19.5 Inch HD LED Monitor (HDMI, VGA)",
+      "price": "11,000",
+      "image": "P204v.jpg"
+   },
+   {
+      "id": 3,
+      "name": "HP V22 21.5'' LED Full HD Monitor",
+      "price": "13,800",
+      "image": "v22-1.jpg"
+   },
+   {
+      "id": 4,
+      "name": "HP M22f 22'' FHD IPS Monitor",
+      "price": "17,500",
+      "image": "m22f.jpg"
+   },
+   {
+      "id": 5,
+      "name": "HP E24i G4 24'' WUXGA Monitor",
+      "price": "30,000",
+      "image": "e24i-g4.jpg"
+   },
+   {
+      "id": 6,
+      "name": "HP M24f 24'' FHD IPS Monitor",
+      "price": "21,500",
+      "image": "m24f.jpg"
+   },
+   {
+      "id": 7,
+      "name": "HP P24v G4 23.8'' FHD Monitor",
+      "price": "19,700",
+      "image": "p24v-g4-01.jpg"
+   }
+]
