@@ -1,20 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import TvComp from './TvComp';
 import TvCart from './TvCart';
-// import e24i from '../Assets/images/e24i-g4.jpg';
-// import m22f from '../Assets/images/m22f.jpg';
-// import m24f from '../Assets/images/m24f.jpg';
-// import p19v from '../Assets/images/p19v-g4-1.jpg';
-// import P204v from '../Assets/images/P204v.jpg';
-// import p24v from '../Assets/images/p24v-g4-01.jpg';
-// import v22 from '../Assets/images/v22-1.jpg';
-
 
 const TvHouse = () => {
    const [allTv, setAllTv] = useState([]);
    const [cart, setCart] = useState([]);
-   const [clearCard, setClearCard] = useState("");
    const [selectOne, setSelectOne] = useState([]);
 
    // Data fetch from local json file
@@ -32,17 +22,23 @@ const TvHouse = () => {
       });
 
       if (checkDuplicate) {
-         window.alert("You have already added this item in cart");
+         window.alert("You have already added this item in the cart");
          return;
       } else {
          const newCart = [...cart, tv];
-         setCart(newCart);
+         if (newCart.length > 4) {
+            alert("Can't select more than 4 items!");
+            return;
+         } else {
+            setCart(newCart);
+         }
       }
    }
 
    // Clear div
    const handleToClearCart = () => {
       setCart([]);
+      setSelectOne([]);
    }
 
    // Select One function 
@@ -52,7 +48,7 @@ const TvHouse = () => {
    }
 
    return (
-      <div id='tv_house' className='w-100 bg-light py-4'>
+      <section id='tv_house' className='w-100 bg-light py-4'>
          <div className="container">
             <div className="row">
                <div className="col-lg-9">
@@ -78,14 +74,14 @@ const TvHouse = () => {
                <div className="col-lg-3 cart_details" id='cart_details'>
                   <TvCart tv_cart={cart}
                      selectOneHandler={selectOneItem}
-                     selctOneforMe={selectOne}
+                     selectOneForMe={selectOne}
                      clearCartHandler={handleToClearCart}
                   ></TvCart>
                </div>
             </div>
          </div>
 
-      </div>
+      </section>
    );
 };
 

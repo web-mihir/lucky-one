@@ -1,0 +1,12 @@
+[
+   {
+      "id": 1,
+      "question": "1. How React Works ?",
+      "answer": "React is an efficient, flexible, and open-source JavaScript library.\nIts allow to the creation of simple, superfast and flexible web application.\n         React uses virtual DOM to render the view of website its representation of the real DOM which is follow Diff Algorithm.\n         React uses two virtual DOMs to render the user interface.\n         One of them is used to store the current state of the objects and the other to store the previous state of the objects."
+   },
+   {
+      "id": 2,
+      "question": "2. How useState Works ?",
+      "answer": "The useState hook allows us declare one or more state variables in function components.\n useState accepts the initial value of the state variable which is zero in this case and returns a pair of values.\nFirst count variable is initialized with a random number using a random function and setRandomCount is used for updating the state of the count.\nEvery time we click on the button onClick it calls the clickHandler function which sets the count variable again with a random number.\nThe useState hook is a special function that takes the initial state as an argument and returns an array of two entries"
+   }
+]

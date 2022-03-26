@@ -22,7 +22,7 @@ const TvCart = (props) => {
             }
          </div>
          {
-            props.selctOneforMe.map(item => {
+            props.selectOneForMe.map(item => {
                const { id, name } = item;
                return (
                   <div className='border' key={id}>

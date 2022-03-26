@@ -1,14 +1,15 @@
 import './App.css';
 import Header from './Components/Header';
+import Question from './Components/Question';
 import TvHouse from './Components/TvHouse';
-
 
 function App() {
   return (
-    <div className="App">
+    <main className="App">
       <Header></Header>
       <TvHouse></TvHouse>
-    </div>
+      <Question></Question>
+    </main>
   );
 }
 
