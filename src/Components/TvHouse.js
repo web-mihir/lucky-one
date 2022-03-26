@@ -21,15 +21,23 @@ const TvHouse = () => {
    }, []);
 
    const handleAddToTvCart = (tv) => {
+      const { id } = tv;
+
+      if (cart.some(item => item.id === id)) {
+         window.alert("You have already added in cart");
+         return;
+      }
       const newCart = [...cart, tv];
-      setCart(newCart);
+      setCart(newCart)
+
    }
 
    return (
-      <div id='tv_house' className='w-100 bg-secondary py-4'>
+      <div id='tv_house' className='w-100 bg-light py-4'>
          <div className="container">
             <div className="row">
                <div className="col-lg-9">
+                  <h5 className='text-start'>All Tv</h5>
                   <div className="row">
                      {
                         allTv.map(tv => {
@@ -37,7 +45,7 @@ const TvHouse = () => {
                            return (
                               <div className="col-lg-4 col-sm-12" key={id}>
                                  <TvComp tv={tv}
-                                  id={id}
+                                    id={id}
                                     name={name}
                                     price={price}
                                     image={image}
@@ -49,14 +57,7 @@ const TvHouse = () => {
                   </div>
                </div>
                <div className="col-lg-3">
-                  {
-                     cart.map(crt => {
-
-                        return (
-                           <TvCart tv_cart={crt}></TvCart>
-                        )
-                     })
-                  }
+                  <TvCart tv_cart={cart}></TvCart>
                </div>
             </div>
          </div>
