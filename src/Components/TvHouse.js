@@ -14,22 +14,43 @@ import TvCart from './TvCart';
 const TvHouse = () => {
    const [allTv, setAllTv] = useState([]);
    const [cart, setCart] = useState([]);
+   const [clearCard, setClearCard] = useState("");
+   const [selectOne, setSelectOne] = useState([]);
+
+   // Data fetch from local json file
    useEffect(() => {
       fetch('data.json')
          .then(res => res.json())
          .then(data => setAllTv(data))
    }, []);
 
+   // Handler for add to cart items
    const handleAddToTvCart = (tv) => {
       const { id } = tv;
+      const checkDuplicate = cart.some(item => {
+         return item.id === id;
+      });
 
-      if (cart.some(item => item.id === id)) {
-         window.alert("You have already added in cart");
+      if (checkDuplicate) {
+         window.alert("You have already added this item in cart");
          return;
+      } else {
+         const newCart = [...cart, tv];
+         setCart(newCart)
       }
-      const newCart = [...cart, tv];
-      setCart(newCart)
+   }
 
+   // Clear div
+   const handleToClearCart = (divId) => {
+      const clearDiv = document.getElementById(divId).innerHTML = "";
+      setClearCard(clearDiv);
+      window.location.reload();
+   }
+
+   // Select One function 
+   const selectOneItem = (tvCarts) => {
+      const randomSelect = tvCarts[Math.floor(Math.random() * tvCarts.length)];
+      setSelectOne([randomSelect]);
    }
 
    return (
@@ -56,8 +77,12 @@ const TvHouse = () => {
                      }
                   </div>
                </div>
-               <div className="col-lg-3">
-                  <TvCart tv_cart={cart}></TvCart>
+               <div className="col-lg-3 cart_details" id='cart_details'>
+                  <TvCart tv_cart={cart}
+                     selectOneHandler={selectOneItem}
+                     selctOneforMe={selectOne}
+                     clearCartHandler={handleToClearCart}
+                  ></TvCart>
                </div>
             </div>
          </div>
